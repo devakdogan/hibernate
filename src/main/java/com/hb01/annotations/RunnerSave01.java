@@ -57,12 +57,12 @@ public class RunnerSave01 {
         student8.setGrade(69);
         student8.setHouse("Ravenclaw");
 
-        SessionFactory sf = new Configuration().configure()
+        SessionFactory sf = new Configuration().configure() // We need SessionFactory for create session
                 .addAnnotatedClass(Student.class).buildSessionFactory();
 
-        Session session = sf.openSession();
+        Session session = sf.openSession(); // Session is helping us with query,save,update or similar Sql things.
 
-        Transaction tx = session.beginTransaction();
+        Transaction tx = session.beginTransaction(); // Transaction is important for process our changes
 
         session.save(student1);
         session.save(student2);
@@ -73,7 +73,7 @@ public class RunnerSave01 {
         session.save(student7);
         session.save(student8);
 
-        tx.commit();
+        tx.commit(); // After we done with our changes saved. We must use tx.commit() for make them permanent
         session.close();
         sf.close();
     }

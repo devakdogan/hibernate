@@ -1,4 +1,5 @@
 target/
+hibernate.cfg.xml
 pom.xml
 hibernate.iml
 pom.xml.tag
